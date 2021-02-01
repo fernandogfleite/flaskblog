@@ -45,7 +45,7 @@ def register():
         user = User(username=form.username.data, email=form.email.data, password=hashed_password)
         db.session.add(user)
         db.session.commit()
-        flash(f'Sua conta foi criada! Agora você pode fazer login', 'sucess')
+        flash(f'Sua conta foi criada! Agora você pode fazer login', 'success')
         return redirect(url_for('login'))
     return render_template('register.html', title='Registrar', form=form)
 
@@ -105,7 +105,7 @@ def account():
     return render_template('account.html', title='Conta', image_file=image_file, form=form)
 
 
-@app.route('/post/new', methods=['GET", "POST'])
+@app.route('/post/new', methods=["GET", "POST"])
 @login_required
 def new_post():
     form = PostForm()
